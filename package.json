@@ -1,8 +1,8 @@
 {
   "name": "angular-seed",
   "private": true,
-  "version": "0.0.0",
-  "description": "A starter project for AngularJS",
+  "version": "0.1",
+  "description": "",
   "repository": "https://github.com/angular/angular-seed",
   "license": "MIT",
   "devDependencies": {
@@ -14,7 +14,8 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
-    "protractor": "^4.0.9"
+    "protractor": "^4.0.9",
+    "angular-ui-router": "^0.3.2"
   },
   "scripts": {
     "postinstall": "bower install",
