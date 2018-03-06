@@ -38,7 +38,7 @@ var myApp = angular.module('myApp', [
     function($stateProvider, $locationProvider, $urlRouterProvider) {
         $locationProvider.hashPrefix('!');
 
-        // $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/');
         $stateProvider.state('home', {
             url: "/",
             templateUrl: "index.html",
@@ -49,7 +49,7 @@ var myApp = angular.module('myApp', [
 
         })
         $stateProvider.state('view1', {
-            url: "/view1",
+            url: "/app/view1",
             name: 'view1',
             templateUrl: "app/view1/view1.html",
             controller: "View1Ctrl",
@@ -71,6 +71,6 @@ var myApp = angular.module('myApp', [
 ])
 
 .controller('myAppCtrl', ['$scope','$state', function($scope,$state) {
-    $state.go("view2");
+    $state.go("view1");
     // $state.go("page2",{type:1});
 }])
