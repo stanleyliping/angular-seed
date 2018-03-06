@@ -38,7 +38,7 @@ var myApp = angular.module('myApp', [
     function($stateProvider, $locationProvider, $urlRouterProvider) {
         $locationProvider.hashPrefix('!');
 
-        $urlRouterProvider.otherwise('/');
+        // $urlRouterProvider.otherwise('/');
         $stateProvider.state('home', {
             url: "/",
             templateUrl: "index.html",
@@ -49,7 +49,7 @@ var myApp = angular.module('myApp', [
 
         })
         $stateProvider.state('view1', {
-            url: "/app/view1",
+            url: "/view1",
             name: 'view1',
             templateUrl: "app/view1/view1.html",
             controller: "View1Ctrl",
@@ -70,7 +70,19 @@ var myApp = angular.module('myApp', [
     }
 ])
 
-.controller('myAppCtrl', ['$scope','$state', function($scope,$state) {
-    $state.go("view2");
-    // $state.go("page2",{type:1});
-}])
+.controller('myAppCtrl', ['$scope', '$state', '$http',
+    function($scope, $state, $http) {
+        $state.go("view1");
+
+        // var promise = $http({
+        //     method: 'GET',
+        //     url: 'http://128.1.1.4:8000/Api/wsmp/v1/Mobile/scada/QueryAllRecentPoints'
+        // });
+        // promise.then(function(resp) {
+        //     console.log(resp);
+        // }, function(resp) {
+        //     console.log(resp);
+        // });
+        // $state.go("page2",{type:1});
+    }
+])

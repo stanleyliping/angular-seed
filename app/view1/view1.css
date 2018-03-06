@@ -1,0 +1,23 @@
+.index_block{
+	width: 49%;
+	height: 100%;
+	padding: 1%;
+	float: left;
+}
+
+.left{
+	float:left;
+}
+
+.right{
+	float:right;
+}
+
+ul {
+	padding: 2px;
+	margin: 0;
+	list-style:none;
+}
+
+li{
+}
