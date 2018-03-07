@@ -1,26 +1,26 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.index', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/view1', {
-        templateUrl: 'app/view1/view1.html',
-        controller: 'View1Ctrl'
+    $routeProvider.when('/index', {
+        templateUrl: 'app/modules/index/index.html',
+        controller: 'indexCtrl'
     });
 }])
 
-// .controller('View1Ctrl', [function() {
-//     console.log('view1Ctrl');
+// .controller('indexCtrl', [function() {
+//     console.log('indexCtrl');
 // }]);
 
 
 // 'use strict';
 
-// angular.module('myApp.view1', ['ngRoute'])
-.controller('View1Ctrl', ['$scope', '$state',
+// angular.module('myApp.index', ['ngRoute'])
+.controller('indexCtrl', ['$scope', '$state',
     function($scope, $state) {
         // $state.go("home");
-        // console.log('view1Ctrl');
+        // console.log('indexCtrl');
         // setTimeout(function() {
         //     console.log('hello world');
         //     setBlockHeight();
@@ -45,9 +45,9 @@ angular.module('myApp.view1', ['ngRoute'])
                 console.log('谢谢使用！');
                 window.location = "about:blank";
             }, 3000);
-            
-            
         };
-
+        $scope.unlogin=function(){
+            $state.go("unlogin");
+        }
     }
 ])

@@ -3,8 +3,8 @@
 var myApp = angular.module('myApp', [
     'ui.router',
     'ngRoute',
-    'myApp.view1',
-    'myApp.view2',
+    'myApp.index',
+    'myApp.unlogin',
     'myApp.version'
 ])
 
@@ -22,18 +22,7 @@ var myApp = angular.module('myApp', [
     }
 ])
 
-/* 初始化路由配置 */
-// .config(['$stateProvider', '$sceProvider',
-//     function($stateProvider, $sceProvider) {
-//         $stateProvider.state({
-//             name: 'view1',
-//             url: '/view1',
-//             // abstract: true,
-//             templateUrl: 'view1/view1.html'
-//         });
-//     }
-// ])
-
+//路由配置
 .config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
     function($stateProvider, $locationProvider, $urlRouterProvider) {
         $locationProvider.hashPrefix('!');
@@ -48,23 +37,23 @@ var myApp = angular.module('myApp', [
             }
 
         })
-        $stateProvider.state('view1', {
-            url: "/view1",
-            name: 'view1',
-            templateUrl: "app/view1/view1.html",
-            controller: "View1Ctrl",
+        $stateProvider.state('index', {
+            url: "/index",
+            name: 'index',
+            templateUrl: "app/modules/index/index.html",
+            controller: "indexCtrl",
             data: {
-                pageTitle: 'view1'
+                pageTitle: 'index'
             }
 
         })
-        $stateProvider.state('view2', {
-            url: "/view2",
-            name: 'view2',
-            templateUrl: "app/view2/view2.html",
-            controller: "View2Ctrl",
+        $stateProvider.state('unlogin', {
+            url: "/unlogin",
+            name: 'unlogin',
+            templateUrl: "app/modules/unlogin/unlogin.html",
+            controller: "unloginCtrl",
             data: {
-                pageTitle: 'view2'
+                pageTitle: 'unlogin'
             }
         })
     }
@@ -72,7 +61,7 @@ var myApp = angular.module('myApp', [
 
 .controller('myAppCtrl', ['$scope', '$state', '$http',
     function($scope, $state, $http) {
-        $state.go("view1");
+        $state.go("unlogin");
 
         // var promise = $http({
         //     method: 'GET',
