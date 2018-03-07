@@ -11,4 +11,5 @@ angular.module('myApp.unlogin', ['ngRoute'])
 
 .controller('unloginCtrl', [function() {
 	console.log('unloginCtrl');
+	$('#unlogin_main')[0].style.height=$('#unlogin_main')[0].offsetHeight+"px";
 }]);
