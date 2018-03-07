@@ -39,5 +39,15 @@ angular.module('myApp.view1', ['ngRoute'])
         }
         setBlockHeight();
 
+        $scope.exit = function() {
+            $.alert("谢谢使用！");
+            setTimeout(function() {
+                console.log('谢谢使用！');
+                window.location = "about:blank";
+            }, 3000);
+            
+            
+        };
+
     }
 ])
