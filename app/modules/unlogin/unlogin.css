@@ -1,0 +1,46 @@
+.unlogin_botton{
+	margin-left: 15vw;
+	margin-top:12%;
+	width: 69vw;
+	height: 13%;
+	background-color: #436063;
+	color:white;
+	min-height: 35px;
+	border-radius: 15px;
+}
+
+.unlogin_input_img{
+	height: 100%;
+	width:20%;
+	float:left;
+	background-position: center !important;
+}
+
+.unlogin_input_div{
+	margin-left: 15vw;
+	width: 69vw;
+	height: 13% ;
+	border-bottom: 1px;
+	border-bottom-color: white;
+	border-bottom-style: solid;
+}
+
+.unlogin_input_text{
+	font-family: simHei;
+	height:100%;
+	width: 80%;
+	background-color:#A1C5B7;
+	border: 0;
+	padding: 0;
+	color: white
+}
+
+input::-webkit-input-placeholder{ /*WebKit browsers*/
+color: white;
+}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+color: white;
+}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+color: white;
+}

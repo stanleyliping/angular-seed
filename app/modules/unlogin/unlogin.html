@@ -3,19 +3,25 @@
 	<h1 class="title">我的生活</h1>
 	<span class="open-about icon icon-menu" style="float:right"></span>
 </header>
-<div class="content" style="background-color:#A1C5B7; ">
+<div id="unlogin_content" class="content" style="background-color:#A1C5B7; ">
 	<div style="height: 100%;" id="unlogin_main">
-		<div style="height: 40%;">
-			<div style="    height: 80%;
+		<div style="height: 45%;">
+			<div id="logoImg" style="    height: 100%;
 				background: url(asset/img/logo_min.png) no-repeat;
 				background-size: 60%;
-				margin-left: 30%;">
+				background-position: center;">
 			</div>
 		</div>
-		<div style="height: 60%;">
-			<input type="text" placeholder="请输入用户名" style="margin-left: 15vw;width: 69vw;height: 10%">
-			<input type="text" placeholder="请输入密码" style="margin-left: 15vw;width: 69vw;margin-top:15%;height: 10% "><br/>
-			<input type="button" name="" value="登录" style="margin-left: 15vw;margin-top:15%;width: 69vw;height: 10%;background-color: #436063;color:white">
+		<div style="height: 55%;"">
+			<div class="unlogin_input_div">
+				<div class="unlogin_input_img" style="background: url(asset/img/unlogin_user.png) no-repeat;"></div>
+				<input type="text" placeholder="请输入用户名" class="unlogin_input_text">
+			</div>
+			<div style="margin-top:12%;" class="unlogin_input_div">
+				<div class="unlogin_input_img" style="background: url(asset/img/unlogin_pwd.png) no-repeat;"></div>
+				<input type="text" placeholder="请输入密码" class="unlogin_input_text">
+			</div>
+			<input type="button" name="" value="登	  录" class="unlogin_botton">
 		</div>
 	</div>
 </div>

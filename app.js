@@ -8,6 +8,7 @@ var myApp = angular.module('myApp', [
     'myApp.version'
 ])
 
+.constant('wapSettings', window.settings)
 /* 初始化全局配置 */
 .config(['$controllerProvider', '$stateProvider', '$provide',
     function($controllerProvider, $stateProvider, $provide) {
@@ -21,6 +22,36 @@ var myApp = angular.module('myApp', [
         myApp.register = register;
     }
 ])
+
+// .factory('apiRedirectInterceptor', ['$location','settings',
+//         function ($location,settings) {
+//             var router;
+//             if ($location.$$absUrl.indexOf('128.1') != -1 || $location.$$absUrl.indexOf('localhost') != -1)
+//                 router = settings.innerRouter;
+//             else router = settings.outterRouter
+//             var interceptor = {
+//                 request: function (config) {
+//                     if (router) {
+//                         for (var key in router) {
+//                             var pattern = key.replace('*', '.*').replace('/', '\\/');
+//                             var re = new RegExp(pattern);
+//                             if (re.test(config.url)) {
+//                                 config.url = router[key] + config.url;
+//                             }
+//                         }
+//                     }
+//                     var url = config.url;
+//                     if (angular.isObject(config.url)) {
+//                         url = config.url.url;
+//                     }
+//                     console.log(url);
+
+//                     return config;
+//                 }
+//             };
+//             return interceptor;
+//         }
+//     ])
 
 //路由配置
 .config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
@@ -59,8 +90,8 @@ var myApp = angular.module('myApp', [
     }
 ])
 
-.controller('myAppCtrl', ['$scope', '$state', '$http',
-    function($scope, $state, $http) {
+.controller('myAppCtrl', ['$scope', '$state', '$http','wapSettings',
+    function($scope, $state, $http,wapSettings) {
         $state.go("unlogin");
 
         // var promise = $http({
