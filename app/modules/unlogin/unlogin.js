@@ -9,7 +9,7 @@ angular.module('myApp.unlogin', ['ngRoute'])
     });
 }])
 
-.controller('unloginCtrl', ['$scope', '$state','wapSettings', function($scope, $state,wapSettings) {
+.controller('unloginCtrl', ['$scope', '$state', 'wapSettings','$http', function($scope, $state, wapSettings,$http) {
     console.log('unloginCtrl');
 
     function initPageCss() { //初始化页面样式
@@ -37,7 +37,9 @@ angular.module('myApp.unlogin', ['ngRoute'])
 
     $('#unlogin_content').ready(function() {
         $(".unlogin_botton").click(function() {
-            $("#unlogin_content").load(wapSettings.router['wechat']);
+            $http.post(wapSettings.innerRouter['wechat']).then(function(response) {
+                console.log(response);
+            });
             // $("#unlogin_content").load("http://localhost:1339/modules/index.aspx");//调试用
         });
     });
