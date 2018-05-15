@@ -9,7 +9,7 @@ angular.module('myApp.unlogin', ['ngRoute'])
     });
 }])
 
-.controller('unloginCtrl', ['$scope', '$state', 'wapSettings','$http', function($scope, $state, wapSettings,$http) {
+.controller('unloginCtrl', ['$scope', '$state', 'wapSettings', '$http', 'apiService', function($scope, $state, wapSettings, $http, apiService) {
     console.log('unloginCtrl');
 
     function initPageCss() { //初始化页面样式
@@ -37,10 +37,24 @@ angular.module('myApp.unlogin', ['ngRoute'])
 
     $('#unlogin_content').ready(function() {
         $(".unlogin_botton").click(function() {
-            $http.post(wapSettings.innerRouter['wechat']).then(function(response) {
-                console.log(response);
-            });
-            // $("#unlogin_content").load("http://localhost:1339/modules/index.aspx");//调试用
+            if ($scope.userName && $scope.password) {
+                apiService.getUserInfoByName($scope.userName).then(function(result) {
+                    console.log(result);
+                    if (result && result.data) {
+                        var wechatId = result.data.wechatId;
+                        // apiService.getQYMemberById(wechatId).then(function(result) {//获取用户企业微信详细信息
+                        //     console.log(result);
+                        //     if (result && result.data) {
+                        //     }
+                        // })
+                        
+                    }
+
+                });
+            }
+            // apiService.wechatSendMessageTest().then(function(response) {
+            //     console.log(response);
+            // });
         });
     });
     setTimeout(function() {

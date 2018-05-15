@@ -3,6 +3,7 @@
 var myApp = angular.module('myApp', [
     'ui.router',
     'ngRoute',
+    'apiService',
     'myApp.index',
     'myApp.unlogin',
     'myApp.version'
@@ -69,7 +70,7 @@ var myApp = angular.module('myApp', [
     .factory('apiRedirectInterceptor', ['$location', 'wapSettings',
         function($location, wapSettings) {
             var router;
-            if ($location.$$absUrl.indexOf('128.1') != -1 || $location.$$absUrl.indexOf('localhost') != -1)
+            if ($location.$$absUrl.indexOf('192.168') != -1 || $location.$$absUrl.indexOf('localhost') != -1)
                 router = wapSettings.innerRouter;
             else router = wapSettings.outterRouter
             var interceptor = {
@@ -84,9 +85,9 @@ var myApp = angular.module('myApp', [
                         }
                     }
                     var url = config.url;
-                    if (angular.isObject(config.url)) {
-                        url = config.url.url;
-                    }
+                    // if (angular.isObject(config.url)) {
+                    //     url = config.url.url;
+                    // }
                     console.log(url);
 
                     return config;
@@ -100,15 +101,5 @@ var myApp = angular.module('myApp', [
     function($scope, $state, $http, wapSettings) {
         $state.go("unlogin");
 
-        // var promise = $http({
-        //     method: 'GET',
-        //     url: 'http://128.1.1.4:8000/Api/wsmp/v1/Mobile/scada/QueryAllRecentPoints'
-        // });
-        // promise.then(function(resp) {
-        //     console.log(resp);
-        // }, function(resp) {
-        //     console.log(resp);
-        // });
-        // $state.go("page2",{type:1});
     }
 ])
