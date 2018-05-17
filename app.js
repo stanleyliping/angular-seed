@@ -57,6 +57,15 @@ var myApp = angular.module('myApp', [
                     pageTitle: 'unlogin'
                 }
             })
+            $stateProvider.state('expressAlarm', {
+                url: "/expressAlarm",
+                name: 'expressAlarm',
+                templateUrl: "app/modules/expressAlarm/expressAlarm.html",
+                controller: "expressAlarmCtrl",
+                data: {
+                    pageTitle: 'expressAlarm'
+                }
+            })
         }
     ])
 /* 加入拦截器 */

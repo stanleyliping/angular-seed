@@ -47,14 +47,11 @@ angular.module('myApp.unlogin', ['ngRoute'])
                         //     if (result && result.data) {
                         //     }
                         // })
-                        
+
                     }
 
                 });
             }
-            // apiService.wechatSendMessageTest().then(function(response) {
-            //     console.log(response);
-            // });
         });
     });
     setTimeout(function() {
