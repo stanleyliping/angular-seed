@@ -6,7 +6,7 @@ var myApp = angular.module('myApp', [
     'apiService',
     'myApp.index',
     'myApp.unlogin',
-    'myApp.version'
+    'myApp.expressAlarm'
 ])
 
 .constant('wapSettings', window.settings)
@@ -60,7 +60,7 @@ var myApp = angular.module('myApp', [
             $stateProvider.state('expressAlarm', {
                 url: "/expressAlarm",
                 name: 'expressAlarm',
-                templateUrl: "app/modules/expressAlarm/expressAlarm.html",
+                templateUrl: "app/modules/express/expressAlarm/expressAlarm.html",
                 controller: "expressAlarmCtrl",
                 data: {
                     pageTitle: 'expressAlarm'

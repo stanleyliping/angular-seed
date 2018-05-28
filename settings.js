@@ -3,7 +3,8 @@ var settings = {
 
     //外网访问
     outerRouter: {
-    	'wechat':'http://i199527q33.imwork.net:8001'
+    	'wechat':'http://i199527q33.imwork.net:8001',
+        'homeApi':'http://i199527q33.imwork.net:38494',
     },
     //内网测试
     innerRouter: {
@@ -15,7 +16,9 @@ var settings = {
     resources:{
     	'QYwechatRes':'/wechatApi/QYwechat/',
 
-    	'userInfoRes':'/homeApi/userInfo/'
+
+    	'userInfoRes':'/homeApi/userInfo/',
+        'userDaoRes':'/homeApi/userDao/'
     }
 
 }

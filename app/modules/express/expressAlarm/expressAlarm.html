@@ -1,0 +1,121 @@
+<header class="bar bar-nav">
+	<div class="button button-link button-nav pull-left" ng-click="back();" data-transition='slide-out'>
+		<span class="icon icon-left"></span>
+		返回
+	</div>
+	<h1 class="title">我的生活</h1>
+	<span class="icon icon-menu" style="float:right"></span>
+	<span class="open-about icon icon-edit"  style="float:right;margin-right: 3vw"></span>
+</header>
+<div class="content">
+	<!--Popup -->
+	<div class="popup popup-about">
+		<div class="list-block">
+			<ul>
+				<!-- Text inputs -->
+				<li>
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-name"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">姓名</div>
+							<div class="item-input">
+								<input type="text" placeholder="Your name">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-email"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">邮箱</div>
+							<div class="item-input">
+								<input type="email" placeholder="E-mail">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-password"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">密码</div>
+							<div class="item-input">
+								<input type="password" placeholder="Password" class="">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-gender"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">性别</div>
+							<div class="item-input">
+								<select>
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- Date -->
+				<li>
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-calendar"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">生日</div>
+							<div class="item-input">
+								<input type="date" placeholder="Birth day" value="2014-04-30">
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- Switch (Checkbox) -->
+				<li>
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-toggle"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">开关</div>
+							<div class="item-input">
+								<label class="label-switch">
+									<input type="checkbox">
+									<div class="checkbox"></div>
+								</label>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="align-top">
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-comment"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">文本域</div>
+							<div class="item-input">
+							<form  action="#" method="POST">
+							<input id="avatarSlect" type="file" style="">
+							<input type="button" value="上传">
+							</form>
+								
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="content-block">
+			<div class="row">
+				<div class="close-popup col-50 button button-big button-fill button-danger">取消</div>
+				<div class="close-popup col-50 button button-big button-fill button-success">提交</div>
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header">卡头</div>
+		<div class="card-content">
+			<div class="card-content-inner">头和尾的卡片。卡头是用来显示一些额外的信息，或自定义操作卡标题和页脚。</div>
+		</div>
+		<div class="card-footer">卡脚</div>
+	</div>
+</div>
