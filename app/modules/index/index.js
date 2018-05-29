@@ -27,13 +27,22 @@ angular.module('myApp.index', ['ngRoute'])
         }
         setBlockHeight();
 
-        $scope.exit = function() {
+
+        $scope.initial=function(){
+            
+        }
+
+        $(document).on('click', '.open-about', function() {//底部弹出动画
+            $.popup('.popup-about');
+        });
+
+        $scope.exit = function() {//点击退出
             $.alert("谢谢使用！");
             localStorage.clear();
             $state.go("unlogin");
         };
 
-        $scope.toExpressAlarm=function(){
+        $scope.toExpressAlarm = function() {//点击快递功能模块入口
             $state.go("expressAlarm");
         }
     }

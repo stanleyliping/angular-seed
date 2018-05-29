@@ -18,7 +18,9 @@ var settings = {
 
 
     	'userInfoRes':'/homeApi/userInfo/',
-        'userDaoRes':'/homeApi/userDao/'
+        'userDaoRes':'/homeApi/userDao/',
+
+        'expressInfoRes':'/homeApi/expressInfo/'
     }
 
 }

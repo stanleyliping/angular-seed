@@ -17,6 +17,7 @@ app.config(['$controllerProvider', '$stateProvider', '$provide',
             var QYwechatRes = wapSettings.resources['QYwechatRes'];
             var userInfoRes = wapSettings.resources['userInfoRes'];
             var userDaoRes = wapSettings.resources['userDaoRes'];
+            var expressInfoRes = wapSettings.resources['expressInfoRes'];
 
             ////////////////////企业微信接口
             //测试接口，发送信息给JinYuanZhen
@@ -30,7 +31,7 @@ app.config(['$controllerProvider', '$stateProvider', '$provide',
                 return promise;
             }
 
-            //userInfo接口
+            //////////////////////userInfo接口
 
             //通过用户姓名获取用户信息
             this.getUserInfoByName = function(userName) {
@@ -39,9 +40,19 @@ app.config(['$controllerProvider', '$stateProvider', '$provide',
             }
 
 
-            //userDao接口
+            //////////////////////userDao接口
             this.loginRequest=function(userName,password){
                 var promise = $http.get(userDaoRes + 'loginRequest/' + userName+'/'+password);
+                return promise;
+            }
+
+
+            ///////////////////////express接口
+            this.insertExpressInfo=function(condition){
+                var promise = $http.post({
+                    url:expressInfoRes + 'insertExpressInfo/',
+                    data:""
+                });
                 return promise;
             }
         }]);

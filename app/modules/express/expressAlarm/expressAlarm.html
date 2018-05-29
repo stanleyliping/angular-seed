@@ -93,11 +93,11 @@
 						<div class="item-inner">
 							<div class="item-title label">文本域</div>
 							<div class="item-input">
-							<form  action="#" method="POST">
-							<input id="avatarSlect" type="file" style="">
-							<input type="button" value="上传">
-							</form>
-								
+								<form id= "uploadForm">
+									<p >指定文件名： <input type="text" name="filename" value= ""/></p >
+									<p >上传文件： <input type="file" name="file"/></p>
+									<input type="button" value="上传" ng-click="doUpload()" />
+								</form>
 							</div>
 						</div>
 					</div>

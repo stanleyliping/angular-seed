@@ -8,8 +8,8 @@ angular.module('myApp.expressAlarm', ['ngRoute'])
             controller: 'expressAlarmCtrl'
         });
     }])
-    .controller('expressAlarmCtrl', ['$scope', '$state','$http',
-        function($scope, $state,$http) {
+    .controller('expressAlarmCtrl', ['$scope', '$state', '$http', '$httpParamSerializerJQLike',
+        function($scope, $state, $http, $httpParamSerializerJQLike) {
             $scope.back = function() {
                 $state.go("index");
             };
@@ -22,66 +22,37 @@ angular.module('myApp.expressAlarm', ['ngRoute'])
                 $.popup('.popup-about');
             });
 
-
-            /*Ajax上传至后台并返回图片的url*/
-
-
-
-            $("#avatarSlect").change(function() {
-                var image = '';
-                selectImage(this);
+            $scope.doUpload = function() {
+                var formData = new FormData($("#uploadForm")[0]);
+                var expressInfo = {
+                        "RowId": "string",
+                        "ExpressId": "string",
+                        "Company": "string",
+                        "PhoneNum": "string",
+                        "Address": "string",
+                        "Status": "string",
+                        "ImgPath": "string"
+                    }
+                    expressInfo=JSON.stringify(expressInfo);
+                formData.append("expressInfo",expressInfo);
                 
-                function selectImage(file) {
-                    if (!file.files || !file.files[0]) {
-                        return;
+                // $http.post('/homeApi/expressInfo/insertExpressInfo/',formData);
+                $.ajax({
+                    url: 'http://localhost:38494/homeApi/expressInfo/insertExpressInfoWithImg' ,  
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(returndata) {
+                        console.log(returndata);
+                    },
+                    error: function(returndata) {
+                        console.log(returndata);
                     }
-                    var reader = new FileReader();
-                    reader.onload = function(evt) {
-                        image = evt.target.result;
-                        uploadImage();
-                    }
-                    reader.readAsDataURL(file.files[0]);
-                }
+                });
+            }
 
-                function uploadImage() {
-
-                    $http({
-
-                        type: 'POST',
-
-                        url: 'app/1.png',
-
-                        data: {
-                            image: image
-                        },
-
-                        async: false,
-
-                        dataType: 'json',
-
-                        success: function(data) {
-
-                            if (data.success) {
-
-                                alert('上传成功');
-
-                            } else {
-
-                                alert('上传失败');
-
-                            }
-
-                        },
-
-                        error: function(err) {
-
-                            alert('网络故障');
-
-                        }
-
-                    });
-
-                }
-            })
         }
     ])
