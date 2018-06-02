@@ -18,6 +18,8 @@ app.config(['$controllerProvider', '$stateProvider', '$provide',
             var userInfoRes = wapSettings.resources['userInfoRes'];
             var userDaoRes = wapSettings.resources['userDaoRes'];
             var expressInfoRes = wapSettings.resources['expressInfoRes'];
+            var uploadRes = wapSettings.resources['uploadRes'];
+
 
             ////////////////////企业微信接口
             //测试接口，发送信息给JinYuanZhen
@@ -31,13 +33,20 @@ app.config(['$controllerProvider', '$stateProvider', '$provide',
                 return promise;
             }
 
+
             //////////////////////userInfo接口
+            //获取所有用户信息
+            this.getAllUserInfo= function() {
+                var promise = $http.get(userInfoRes + 'getAllUserInfo/');
+                return promise;
+            }
 
             //通过用户姓名获取用户信息
             this.getUserInfoByName = function(userName) {
                 var promise = $http.get(userInfoRes + 'getUserInfoByName/' + userName);
                 return promise;
             }
+
 
 
             //////////////////////userDao接口
@@ -48,10 +57,27 @@ app.config(['$controllerProvider', '$stateProvider', '$provide',
 
 
             ///////////////////////express接口
-            this.insertExpressInfo=function(condition){
-                var promise = $http.post({
-                    url:expressInfoRes + 'insertExpressInfo/',
-                    data:""
+            this.insertExpressInfoWithImg=function(formData){
+                var promise=$http({
+                    url: expressInfoRes+'insertExpressInfoWithImg/',
+                    method: 'POST',
+                    data: formData,
+                    headers: {  
+                        'Content-Type': undefined  
+                    } 
+                });
+                return promise;
+            }
+
+            ///////////////////////upload接口
+            this.uploadImgAndORC=function(formData){
+                    var promise=$http({
+                    url: uploadRes+'uploadImgAndORC/',
+                    method: 'POST',
+                    data: formData,
+                    headers: {  
+                        'Content-Type': undefined  
+                    } 
                 });
                 return promise;
             }

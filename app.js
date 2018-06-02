@@ -109,6 +109,5 @@ var myApp = angular.module('myApp', [
 .controller('myAppCtrl', ['$scope', '$state', '$http', 'wapSettings',
     function($scope, $state, $http, wapSettings) {
         $state.go("unlogin");
-
     }
 ])

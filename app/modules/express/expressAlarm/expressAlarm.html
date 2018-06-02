@@ -9,7 +9,7 @@
 </header>
 <div class="content">
 	<!--Popup -->
-	<div class="popup popup-about">
+	<div class="popup popup-about" ng-init="initData()">
 		<div class="list-block">
 			<ul>
 				<!-- Text inputs -->
@@ -17,20 +17,9 @@
 					<div class="item-content">
 						<div class="item-media"><i class="icon icon-form-name"></i></div>
 						<div class="item-inner">
-							<div class="item-title label">姓名</div>
+							<div class="item-title label">取件码</div>
 							<div class="item-input">
-								<input type="text" placeholder="Your name">
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="item-content">
-						<div class="item-media"><i class="icon icon-form-email"></i></div>
-						<div class="item-inner">
-							<div class="item-title label">邮箱</div>
-							<div class="item-input">
-								<input type="email" placeholder="E-mail">
+								<input type="text" placeholder="必填" ng-model="expressInfo.ExpressCode">
 							</div>
 						</div>
 					</div>
@@ -39,9 +28,42 @@
 					<div class="item-content">
 						<div class="item-media"><i class="icon icon-form-password"></i></div>
 						<div class="item-inner">
-							<div class="item-title label">密码</div>
+							<div class="item-title label">取件地址</div>
 							<div class="item-input">
-								<input type="password" placeholder="Password" class="">
+								<input type="text" placeholder="必填" ng-model="expressInfo.Address">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-email"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">快递公司</div>
+							<div class="item-input">
+								<input type="text" placeholder="非必填" ng-model="expressInfo.Company">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-password"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">快递员手机</div>
+							<div class="item-input">
+								<input type="text" placeholder="非必填" ng-model="expressInfo.PhoneNum">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media"><i class="icon icon-form-password"></i></div>
+						<div class="item-inner">
+							<div class="item-title label">运单号码</div>
+							<div class="item-input">
+								<input type="text" placeholder="非必填" ng-model="expressInfo.ExpressId">
 							</div>
 						</div>
 					</div>
@@ -50,53 +72,27 @@
 					<div class="item-content">
 						<div class="item-media"><i class="icon icon-form-gender"></i></div>
 						<div class="item-inner">
-							<div class="item-title label">性别</div>
+							<div class="item-title label">发送提醒</div>
 							<div class="item-input">
-								<select>
-									<option>Male</option>
-									<option>Female</option>
+								<select ng-model="user">
+									<option ng-repeat="user in allUserInfo">{{user.Name}}</option>
 								</select>
 							</div>
 						</div>
 					</div>
 				</li>
-				<!-- Date -->
-				<li>
-					<div class="item-content">
-						<div class="item-media"><i class="icon icon-form-calendar"></i></div>
-						<div class="item-inner">
-							<div class="item-title label">生日</div>
-							<div class="item-input">
-								<input type="date" placeholder="Birth day" value="2014-04-30">
-							</div>
-						</div>
-					</div>
-				</li>
 				<!-- Switch (Checkbox) -->
-				<li>
-					<div class="item-content">
-						<div class="item-media"><i class="icon icon-form-toggle"></i></div>
-						<div class="item-inner">
-							<div class="item-title label">开关</div>
-							<div class="item-input">
-								<label class="label-switch">
-									<input type="checkbox">
-									<div class="checkbox"></div>
-								</label>
-							</div>
-						</div>
-					</div>
+				<li style="padding-left: 8vw;padding-right: 5vw;color:red">
+					如果希望使用图片文字识别功能，请确保表单前四行为空，然后上传图片
 				</li>
 				<li class="align-top">
 					<div class="item-content">
 						<div class="item-media"><i class="icon icon-form-comment"></i></div>
 						<div class="item-inner">
-							<div class="item-title label">文本域</div>
+							<div class="item-title label">上传截图</div>
 							<div class="item-input">
 								<form id= "uploadForm">
-									<p >指定文件名： <input type="text" name="filename" value= ""/></p >
-									<p >上传文件： <input type="file" name="file"/></p>
-									<input type="button" value="上传" ng-click="doUpload()" />
+									<input type="file" style="padding-top: 10px;" name="file" id="imgInput"/>
 								</form>
 							</div>
 						</div>
@@ -107,7 +103,7 @@
 		<div class="content-block">
 			<div class="row">
 				<div class="close-popup col-50 button button-big button-fill button-danger">取消</div>
-				<div class="close-popup col-50 button button-big button-fill button-success">提交</div>
+				<div class="close-popup col-50 button button-big button-fill button-success" ng-click="submitForm()">提交</div>
 			</div>
 		</div>
 	</div>

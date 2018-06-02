@@ -33,12 +33,7 @@ angular.module('myApp.unlogin', ['ngRoute'])
 
     $(".unlogin_botton").click(function() {
         if ($scope.userName && $scope.password) {
-            apiService.getUserInfoByName($scope.userName).then(function(result) {
-                console.log(result);
-                if (result && result.data) {
-                    var wechatId = result.data.wechatId;
-                }
-            });
+
             apiService.loginRequest($scope.userName,$scope.password).then(function(result){
                 if (result && result.data) {
                     switch(result.data){//1--成功，0--系统错误，-1--查无此用户，-2--用户没有分配任何功能权限，-3--密码错误，-4--用户状态为已删除
@@ -57,8 +52,9 @@ angular.module('myApp.unlogin', ['ngRoute'])
                         case -4:
                         $.toast("用户未激活");
                         break;
-                        case 1:
+                        default:
                         $.toast("验证成功");
+                        localStorage.setItem('guid',result.data);
                         localStorage.setItem('userName',$scope.userName);
                         $state.go("index");
                     }
